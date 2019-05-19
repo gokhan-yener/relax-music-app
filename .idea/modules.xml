@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../laravel-cms/.idea/laravel-cms.iml" filepath="$PROJECT_DIR$/../laravel-cms/.idea/laravel-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../teknasyon/.idea/teknasyon.iml" filepath="$PROJECT_DIR$/../teknasyon/.idea/teknasyon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tekno-app.iml" filepath="$PROJECT_DIR$/.idea/tekno-app.iml" />
+    </modules>
+  </component>
+</project>
