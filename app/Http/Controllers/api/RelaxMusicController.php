@@ -35,7 +35,6 @@ class RelaxMusicController extends Controller
     {
 
         $songs = SongModel::where(["category_id" => $category])->get();
-        //  dd($songs);
         $user_id = Auth::id();
         $token = User::find($user_id)->api_token;
         return view("api.category_detail", compact('songs', 'token'));
@@ -45,22 +44,15 @@ class RelaxMusicController extends Controller
     {
 
         $data = request()->only("song_id");
-
         $data['user_id'] = Auth::id();
-
         $count = FavouriteModel::where(['user_id' => $data['user_id'], 'song_id' => $data])->get()->count();
-
         if ($count > 0) {
-
             return response()->json([
                 'status' => 200,
                 'message' => 'this song already added your favourities.'
             ]);
-
-
         } else {
             $insert = FavouriteModel::create($data);
-
             if ($insert) {
                 return response()->json([
                     'status' => 200,
@@ -78,23 +70,17 @@ class RelaxMusicController extends Controller
 
     public function favourite()
     {
-
         $favourities = FavouriteModel::where(['user_id' => Auth::id()])->get();
         $user_id = Auth::id();
         $token = User::find($user_id)->api_token;
-
         return view("api.fav", compact('favourities', 'token'));
     }
 
 
     public function favouriteDelete()
     {
-
         $data = request()->only("song_id");
-
-
         $count = FavouriteModel::where(['id' => $data['song_id']])->get()->count();
-
         if ($count > 0) {
             FavouriteModel::where(['id' => $data['song_id']])->delete();
 
@@ -102,10 +88,7 @@ class RelaxMusicController extends Controller
                 'status' => 200,
                 'message' => 'this song removed your favourities.'
             ]);
-
-
         } else {
-
             return response()->json([
                 'status' => 200,
                 'message' => '!!! this song didnt find in  your favourities.'
